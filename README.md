@@ -3,7 +3,7 @@
 ## Darba uzdevuma apraksts
 Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tādā veidā ietaupot savu laiku un resursus. Es bieži arī izvēlos iepirkties interneta veikalos, it īpaši apģērbu veikalos. Tomēr bieži vien pavadu vairākas stundas pie datora, meklējot piemēroto mājaslapu, kur varu atrast sev tīkamo apģērbu. 
 
-  Šajā projektā esmu izvēlējusies tīmekļa pārlūkprogrammu automatizēšanu, ar kuras palīdzību es varu iegūt datus no interneta veikaliem par sev nepieciešamajām precēm un iegūt datus pārskatāmā veidā.
+  Šajā projektā esmu izvēlējusies tīmekļa pārlūkprogrammu automatizēšanu, ar kuras palīdzību es varu iegūt datus no interneta veikaliem par sev nepieciešamajām precēm un iegūt tos ātrāk un daudz pārskatāmā veidā.
   
    Programmas mērķis ir sniegt lietotājiem iespēju ievadīt produkta nosaukumu un maksimālo cenu (budžetu), pēc kuras tiek meklēts un salīdzināts šī produkta piedāvājumus divās interneta veikala platformās "About You" un "Zalando". Rezultāti tiek saglabāti Excel datnē.
 
