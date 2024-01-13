@@ -31,7 +31,8 @@ Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tād
 -Kā arī tiek veikta lietotāja ievade, kurā tiks ievadīts vēlamās preces nosaukums un tās budžets.
 
 **2.Mājaslapas atvēršana un elementu meklēšana**
-Šajā un turpmākajās sadaļās kods tiek viedots divās daļās. Pirmā daļa, kur tiek automatizēta "About You" vietne un otrā daļa (kodā atzīmēta) ir vietne "Zalando". 
+
+  Šajā un turpmākajās sadaļās kods tiek viedots divās daļās. Pirmā daļa, kur tiek automatizēta "About You" vietne un otrā daļa (kodā atzīmēta) ir vietne "Zalando". 
 
 - Tiek veikta mājaslapas atvēršana, izmantojot "driver.get.url()"
 
