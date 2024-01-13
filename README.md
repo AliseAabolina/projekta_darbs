@@ -1,5 +1,5 @@
 # projekta_darbs
-# Interneta veikala tīmekļa vietņu automatizēšana izmantojot tīmekļa datu iegūšanu (Webscrapping).
+# Interneta veikala vietņu automatizēšana izmantojot tīmekļa datu iegūšanu (Webscrapping).
 ## Darba uzdevuma apraksts
 Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tādā veidā ietaupot savu laiku un resursus. Es bieži arī izvēlos iepirkties interneta veikalos, it īpaši apģērbu veikalos. Tomēr bieži vien pavadu vairākas stundas pie datora, meklējot piemēroto mājaslapu, kur varu atrast sev tīkamo apģērbu. 
 
