@@ -45,7 +45,7 @@ Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tād
 
 - Man bija svarīgi iegūt preces nosaukumu un tās cenu.
 
-  **3.Datu iegūšana un apstrāde**
+**3.Datu iegūšana un apstrāde**
 - Izmantojot maksimālo cenu, kas norādīta lietotāja ievadē, programma filtrē produktus, kas atbilst šim kritērijam.
   
 - Tiek izvadīti produktu nosaukumi
@@ -54,10 +54,15 @@ Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tād
   
 - Izmantojot pandas, dati tiek sakārtoti pārskatāmā veidā, tiek arī filtrēts datu saturs un atbrīvošanās no nevajadzīgiem elementiem.
 
-  **4.Datu pārveide uz Excel**
-  - Izmantojot Openpyxl, tiek izveidota jauna Excel datne, kurā tiks ievietoti dati
+**4.Datu pārveide uz Excel**
+- Izmantojot Openpyxl, tiek izveidota jauna Excel datne, kurā tiks ievietoti dati
 
-  - 
+- Tiek izveidots datu formatējums tabulā (tabulas kollonu nosaukumi)
+
+**5.Programmas beigas**
+- tiek aizvērts selenium webdriver.
+
+-  tiek izvadīts paziņojums par veiksmīgu datu pārnesi uz Excel datni.
 
 
 
