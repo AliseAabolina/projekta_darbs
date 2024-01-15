@@ -1,3 +1,33 @@
+import pandas as pd
+price_strings = ["10.99 $", "20.50 $", "5.00 $", "15.75 $"]
+def convert_to_numbers(str_list):
+    numbers = []
+    for s in str_list:
+        # Remove unwanted characters
+        s_clean = s.replace("$", "").strip()
+        try:
+            number = float(s_clean)
+            numbers.append(number)
+        except ValueError:
+            # Skip the string if it's not a valid number
+            continue
+    return numbers
+
+
+aboutYouPrices = convert_to_numbers(price_strings)
+
+about_you_dati = pd.DataFrame({
+    'Website': 'About You',
+    'Price': aboutYouPrices
+})
+
+excel_file_path = 'products2.xlsx'
+about_you_dati.to_excel(excel_file_path, index=False)
+
+
+
+
+
 import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -9,51 +39,70 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 from openpyxl import Workbook, load_workbook
 import pandas as pd
+
+def convert_to_numbers(str_list):
+    numbers = []
+    for s in str_list:
+        # Remove unwanted characters
+        s_clean = s.replace(" €", "").strip()
+        try:
+            s_clean = s.replace("no ", "").strip()
+            number = float(s_clean)
+            numbers.append(number)
+            
+        except ValueError:
+            # Skip the string if it's not a valid number
+            continue
+    return numbers
+
+
+
+
 service = Service()
 option = webdriver.ChromeOptions()
 driver = webdriver.Chrome(service=service, options=option)
-print("Ievadiet preci:")                                                #tiek pieprasīta lietotāja ievade
+print("Ievadiet lietu:")
 input1 = input()
-print("ievadiet sev vēlamo budžetu:")
+print("ievadiet budžetu:")
 input2 = input()
 
 
-url = "https://www.aboutyou.lv/jusu-veikals"      
+url = "https://www.aboutyou.lv/jusu-veikals"
 time.sleep(6)
-driver.get(url)                                                      #Tiek atvērtna vietne "About You"
+driver.get(url)
 time.sleep(5)
-find_ok = driver.find_element(By.ID,"onetrust-accept-btn-handler")   #Meklē sīkdatņu apstiprināšanas pogu pēc selektora "ID"
+find_ok = driver.find_element(By.ID,"onetrust-accept-btn-handler")
 find_ok.click()
 time.sleep(2)
 
-find_search = driver.find_element(By.XPATH,'//*[@id="react-root"]/header/div[4]/section/div[2]/div/input')#Meklē "search" elementu, kurā tiek ievietota lietotāja pirmā ievade "input1"
+find_search = driver.find_element(By.XPATH,'//*[@id="react-root"]/header/div[4]/section/div[2]/div/input')
 find_search.send_keys(input1)
 time.sleep(4)
-find_search.send_keys(Keys.ENTER) 
+find_search.send_keys(Keys.ENTER)
 
 time.sleep(6)
 
-find_price = driver.find_element(By.XPATH, '//button/span[text()="Cena"]')#meklē pogu  "Cena"
+find_price = driver.find_element(By.XPATH, '//button/span[text()="Cena"]')
 find_price.click()
 time.sleep(4)
-find_set_price = driver.find_element(By.XPATH,'//input[@data-testid="maximumInput"]') 
-find_set_price.send_keys(input2) #Pogā "Cena" tiek ievadīta lietotāja otrā ievade (input2), kas ir maksimālā cenas vērtība kādu piekšķir atlasot preces.
+find_set_price = driver.find_element(By.XPATH,'//input[@data-testid="maximumInput"]')
+find_set_price.send_keys(input2)
 find_set_price.send_keys(Keys.ENTER)
 
 
 time.sleep(3)
-title_elements = driver.find_elements(By.CSS_SELECTOR, "[class*='sc-1vt6vwe-0 sc-1vt6vwe-1']")#tiek meklēti preču nosaukumi (virsraksti)
+title_elements = driver.find_elements(By.CSS_SELECTOR, "[class*='sc-1vt6vwe-0 sc-1vt6vwe-1']")
 titles = [title.text for title in title_elements]
 
 time.sleep(2)
-product_price_elements = driver.find_elements(By.XPATH, '//span[@data-testid="finalPrice"]')#meklē cenu (tekstu)
+product_price_elements = driver.find_elements(By.XPATH, '//span[@data-testid="finalPrice"]')
 prices = [price.text for price in product_price_elements]
 
 
 
-if len(titles) == len(prices):                                                          #Pārbauda vai preču nosaukumu skaits sakrīt ar preču cenu skaitu
-    combined_list = [f"{title} - {price}" for title, price in zip(titles, prices)]        #izveido pārskatāmu datu sarakstu
-    print("\nAbout you:")                                                             
+if len(titles) == len(prices):
+    combined_list = [f"{title} - {price}" for title, price in zip(titles, prices)]
+    print("\nAbout you:")
     for item in combined_list:
         print(item)
 else:
@@ -61,19 +110,17 @@ else:
 print(len(titles))
 print(len(prices))
 
+aboutYouPrices = convert_to_numbers(prices)
+
 about_you_dati = pd.DataFrame({
     'Website': 'About You',
     'Title': titles,
-    'Price': prices
+    'Price': aboutYouPrices
 })
 
 ############## ZALANDO-----------------------------------------------------------------
 driver.get("https://www.zalando.lv/")
-time.sleep(3)
-find_okaccept = driver.find_element(By.XPATH, '//*[@id="uc-btn-accept-banner"]')
-find_okaccept.click()
-time.sleep(2)
-
+time.sleep(4)
 
 find_search_input = driver.find_element(By.ID,"header-search-input")
 find_search_input.send_keys(input1)
@@ -99,7 +146,7 @@ saglabat = driver.find_element(By.CSS_SELECTOR, '[aria-label="lietot filtru Cena
 saglabat.click()
 time.sleep(4)
 
-
+# ... previous code ...
 
 title_elements2 = driver.find_elements(By.CSS_SELECTOR, "[class='sDq_FX lystZ1 FxZV-M HlZ_Tf ZkIJC- r9BRio qXofat EKabf7 nBq1-s _2MyPg2']")
 nosaukumi = [title.text for title in title_elements2]
@@ -122,19 +169,22 @@ else:
 print(len(nosaukumi))
 print(len(cenas))
 
-zalando_dati = pd.DataFrame({   #dati tiek sagatavoti un tiek izveidots to izkārtojums  kāds tas būs excel lapā
+zalandoPrices = convert_to_numbers(cenas)
+
+zalando_dati = pd.DataFrame({
     'Website': 'ZALANDO',
     'Title': nosaukumi,
-    'Price': cenas
+    'Price': zalandoPrices
 })
 
-visi_dati = pd.concat([about_you_dati, zalando_dati], ignore_index=True)        
+visi_dati = pd.concat([about_you_dati, zalando_dati], ignore_index=True)
 
-
-excel_file_path = 'products2.xlsx'                      #dati tiek pārveidoti uz excel datni "products1.xlsx"
+# Create an Excel workbook and sheet
+excel_file_path = 'produkti.xlsx'
 visi_dati.to_excel(excel_file_path, index=False)
 
-print(f"Data saved to {excel_file_path}")               
+print(f"Data saved to {excel_file_path}")
+
+
 
 driver.quit()
-
