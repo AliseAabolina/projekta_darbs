@@ -131,7 +131,7 @@ zalando_dati = pd.DataFrame({   #dati tiek sagatavoti un tiek izveidots to izkā
 visi_dati = pd.concat([about_you_dati, zalando_dati], ignore_index=True)        
 
 
-excel_file_path = 'products2.xlsx'                      #dati tiek pārveidoti uz excel datni "products1.xlsx"
+excel_file_path = 'products1.xlsx'                      #dati tiek pārveidoti uz excel datni "products1.xlsx"
 visi_dati.to_excel(excel_file_path, index=False)
 
 print(f"Data saved to {excel_file_path}")               
