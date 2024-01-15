@@ -5,7 +5,7 @@ Ik dienu tūkstošiem cilvēku visā pasaulē iepērkas interneta veikalos, tād
 
   Šajā projektā esmu izvēlējusies tīmekļa pārlūkprogrammu automatizēšanu, ar kuras palīdzību es varu iegūt datus no interneta veikaliem par sev nepieciešamajām precēm un iegūt tos ātrāk un daudz pārskatāmā veidā.
   
-   Programmas mērķis ir sniegt lietotājiem iespēju ievadīt produkta nosaukumu un maksimālo cenu (budžetu), pēc kuras tiek meklēts un salīdzināts šī produkta piedāvājumus divās interneta veikala platformās "About You" un "Zalando". Rezultāti tiek saglabāti Excel datnē.
+   Programmas mērķis ir sniegt lietotājiem iespēju ievadīt produkta nosaukumu un maksimālo cenu (budžetu), pēc kuras tiek meklēts un salīdzināts šī produkta piedāvājumus divās interneta veikala platformās: "About You" un "Zalando". Rezultāti tiek saglabāti Excel datnē.
 
 
 ## Python bibliotēku apraksts
